@@ -36,21 +36,8 @@ function CondicionAtmosferica() {
   };
 
   const estadosMx = [
-    "Aguascalientes",
-    "Baja California",
-    "Baja California Sur",
-    "Campeche",
-    "Chiapas",
-    "Chihuahua",
-    "Ciudad de México",
-    "Coahuila",
-    "Colima",
-    "Durango",
-    "Estado de México",
-    "Guanajuato",
-    "Guerrero",
-    "Hidalgo",
-    "Jalisco",
+    
+    
     "Michoacán",
     "Morelos",
     "Nayarit",
@@ -63,11 +50,17 @@ function CondicionAtmosferica() {
     "Sinaloa",
     "Sonora",
     "Tabasco",
+    "Estado de México",
+    "Guanajuato",
+    "Guerrero",
+    "Hidalgo",
+    "Jalisco",
     "Tamaulipas",
     "Tlaxcala",
     "Veracruz",
     "Yucatán",
     "Zacatecas"
+    
   ];
 
   return (

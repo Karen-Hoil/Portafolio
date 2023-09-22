@@ -1,16 +1,11 @@
-import React  from 'react';
 import './App.css';
-import Dashboard from './components/Dashboard'; // Importa el componente Dashboard
-import CondicionAdmosferica from './condicionAdmosferica';
+import CondicionAtmosferica from './components/Dashboard';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Dashboard /> {/* Agrega el componente Dashboard aquí */}
-        <CondicionAdmosferica/>
-
-      </header>
+      <h1>Mi Aplicación React</h1>
+      <CondicionAtmosferica />
     </div>
   );
 }

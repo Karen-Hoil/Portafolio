@@ -77,7 +77,7 @@ function CondicionAtmosferica() {
         <div className="col-md-4">
           <h2>Selecciona un estado</h2>
           <select className="form-select" onChange={handleEstadoChange} value={estadoActual}>
-            <option value="">Selecciona un estado</option>
+            <option value="" className="estado">Selecciona un estado</option>
             {estadosMx.map((estado, index) => (
               <option key={index} value={estado}>
                 {estado}

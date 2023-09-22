@@ -2,7 +2,14 @@ import React, {useState, useEffect} from 'react'
 
 function CondicionAdmosferica() {
     const url = "https://api.datos.gob.mx/v1/condiciones-atmosfericas";
-    const estadosMx = [{"id":1, "name":"Aguascalientes"},{"id": 2, "name": "Baja California"},{"id": 19, "name": "Nuevo León"},{"id": 20, "name": "Oxaca"},{"id": 21, "name": "Puebla"}, {"id": 31, "name": "Yucatan"}, {"id": 32, "name": "Zacatecas"}];
+    const estadosMx = [
+        {"id":1, "name":"Aguascalientes"},
+        {"id": 2, "name": "Baja California"},
+        {"id": 19, "name": "Nuevo León"},
+        {"id": 20, "name": "Oxaca"},
+        {"id": 21, "name": "Puebla"}, 
+        {"id": 31, "name": "Yucatan"}, 
+        {"id": 32, "name": "Zacatecas"}];
     const [datos, setDatos] = useState([]);
     const [estadoActual, setEstadoActual] = useState("Quintana Roo");
     const consultarDatos = () => {

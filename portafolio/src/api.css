@@ -1,0 +1,11 @@
+.titulo{
+    background-color: rgba(224, 122, 122, 0.747);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.estado{
+    background-color: rgba(214, 200, 122, 0.89);
+    border-radius: 3px;
+}

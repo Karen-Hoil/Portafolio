@@ -17,7 +17,7 @@ function CondicionAtmosferica() {
           setCargando(false);
         } else {
           console.error("Error: La API no devolvió un array 'results' válido.");
-          setCargando(false); 
+          setCargando(false);
         }
       })
       .catch((error) => {
@@ -40,10 +40,10 @@ function CondicionAtmosferica() {
     "Baja California",
     "Baja California Sur",
     "Campeche",
+    "Chiapas",
     "Chihuahua",
     "Ciudad de México",
     "Coahuila",
-    "Chiapas",
     "Colima",
     "Durango",
     "Estado de México",
@@ -69,47 +69,53 @@ function CondicionAtmosferica() {
     "Yucatán",
     "Zacatecas"
   ];
-  
 
   return (
     <div className="container mt-5">
       <div className="row">
-        <div className="col-md-4">
-          <h2>Selecciona un estado</h2>
-          <select className="form-select" onChange={handleEstadoChange} value={estadoActual}>
-            <option value="">Selecciona un estado</option>
-            {estadosMx.map((estado, index) => (
-              <option key={index} value={estado}>
-                {estado}
-              </option>
-            ))}
-          </select>
+        <div className="col-md-3">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Selecciona un estado</h5>
+              <select className="form-select" onChange={handleEstadoChange} value={estadoActual}>
+                <option value="">Selecciona un estado</option>
+                {estadosMx.map((estado, index) => (
+                  <option key={index} value={estado}>
+                    {estado}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
         </div>
-        <div className="col-md-8">
-          <h2>Estado del tiempo</h2>
-          {cargando ? (
-            <p>Cargando datos...</p>
-          ) : estadoActual ? (
-            <>
-              <h3>Estado seleccionado: {estadoActual}</h3>
-              <div>
-                {ciudadesDelEstado.length > 0 ? (
-                  ciudadesDelEstado.map((ciudad, index) => (
-                    <div key={index}>
-                      <p>
-                        Ciudad: {ciudad.name} - Condición climática:{" "}
-                        {ciudad.skydescriptionlong}
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No hay datos disponibles para este estado.</p>
-                )}
-              </div>
-            </>
-          ) : (
-            <p>Selecciona un estado para ver el estado del tiempo.</p>
-          )}
+        <div className="col-md-9">
+          <div className="card">
+            <div className="card-body">
+              {cargando ? (
+                <p className="card-text">Cargando datos...</p>
+              ) : estadoActual ? (
+                <>
+                  <h5 className="card-title">Estado seleccionado: {estadoActual}</h5>
+                  <div>
+                    {ciudadesDelEstado.length > 0 ? (
+                      ciudadesDelEstado.map((ciudad, index) => (
+                        <div key={index}>
+                          <p>
+                            Ciudad: {ciudad.name} - Condición climática:{" "}
+                            {ciudad.skydescriptionlong}
+                          </p>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No hay datos disponibles para este estado.</p>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <p className="card-text">Selecciona un estado para ver el estado del tiempo.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

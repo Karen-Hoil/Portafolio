@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 function CondicionAtmosferica() {
-  const url = "https://api.datos.gob.mx/v1/condiciones-atmosfericas";
+  const apiUrl = "https://api.datos.gob.mx/v1/condiciones-atmosfericas?pageSize=800";
   const [datos, setDatos] = useState([]);
   const [estadoActual, setEstadoActual] = useState("");
   const [ciudadesDelEstado, setCiudadesDelEstado] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [estadosMx, setEstadosMx] = useState([]); 
 
   useEffect(() => {
-    fetch(url)
-      .then((rest) => rest.json())
+    
+    fetch(apiUrl)
+      .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data.results)) {
           setDatos(data.results);
@@ -26,6 +28,16 @@ function CondicionAtmosferica() {
       });
   }, []);
 
+  useEffect(() => {
+   
+    const estadosUnicos = [...new Set(datos.map((item) => item.state))];
+
+    
+    estadosUnicos.sort();
+
+    setEstadosMx(estadosUnicos);
+  }, [datos]);
+
   const handleEstadoChange = (e) => {
     const estadoSeleccionado = e.target.value;
     setEstadoActual(estadoSeleccionado);
@@ -34,34 +46,6 @@ function CondicionAtmosferica() {
 
     setCiudadesDelEstado(ciudades);
   };
-
-  const estadosMx = [
-    
-    
-    "Michoacán",
-    "Morelos",
-    "Nayarit",
-    "Nuevo León",
-    "Oaxaca",
-    "Puebla",
-    "Querétaro",
-    "Quintana Roo",
-    "San Luis Potosí",
-    "Sinaloa",
-    "Sonora",
-    "Tabasco",
-    "Estado de México",
-    "Guanajuato",
-    "Guerrero",
-    "Hidalgo",
-    "Jalisco",
-    "Tamaulipas",
-    "Tlaxcala",
-    "Veracruz",
-    "Yucatán",
-    "Zacatecas"
-    
-  ];
 
   return (
     <div className="container mt-5">
